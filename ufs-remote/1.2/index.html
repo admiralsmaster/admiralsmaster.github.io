@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- 
+    see http://code.google.com/p/ufs-remote/
+ -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>UFS Remote</title>
+<meta name="description" content="HTML remote for UFS" />
+<meta name="keywords" content="UFS Remote" />
+<meta name="author" content="Ariel Küchler" />
+<link rel="stylesheet" type="text/css" href="css.css">
+
+<!-- <= IE6 -->
+<!--[if lte IE 6]>
+<style type="text/css">
+#url {
+    width: 97%;
+}
+</style>
+<![endif]-->
+
+<!-- <= IE7 -->
+<!--[if lte IE 7]>
+<style type="text/css">
+button.img * { /* no text if image */
+	visibility: visible;
+}
+</style>
+<![endif]-->
+
+<!-- <= IE8 -->
+<!--[if lte IE 8]>
+<style type="text/css">
+fieldset,button {
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#e2e2e2', Direction=135, Strength=5);
+}
+</style>
+<![endif]-->
+
+<!-- <= IE9 -->
+<!--[if lte IE 9]>
+<style type="text/css">
+#archiv span, #fav span, #pip span, #opt span, #tvr span {
+    position: relative;
+    left: -3px;
+}
+#fforward span {
+    position: relative;
+    left: -10px;
+}
+</style>
+<![endif]-->
+
+<!-- IE8 -->
+<!--[if IE 8]>
+<style type="text/css">
+legend { /* fieldset/label bug, from http://snipplr.com/view/22523/ */
+    display: block !important;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    visibility: hidden;
+}
+</style>
+<![endif]-->
+    <script src="jquery-1.8.2.min.js"></script>
+    <script src="js.js"></script>
+</head>
+<body>
+	<div class="all">
+		<form>
+			<fieldset>
+				<legend>URL</legend>
+				<div class="line">
+					<label for="url">URL</label> 
+					<input id="url" type="text" required="required" pattern="https?://[^\s]+:\d+/?" title="URL Format: http://123.234.345.1:9000/" value="">
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Tasten</legend>
+				<div class="line">
+					<button title="'h'" type="submit" class="dr bgr hea" id="help"><span>?</span></button>
+					<button title="<F4>" type="submit" class="zdr bbl hea" id="standby"><span>on/off</span></button>
+				</div>
+				<div class="line">
+					<button title="'1'" type="submit" class="dr bbl num" id="1"><span>1</span></button>
+					<button title="'2'" type="submit" class="dr bbl num" id="2"><span>2</span></button>
+					<button title="'3'" type="submit" class="dr bbl num" id="3"><span>3</span></button>
+				</div>
+				<div class="line">
+					<button title="'4'" type="submit" class="dr bbl num" id="4"><span>4</span></button>
+					<button title="'5'" type="submit" class="dr bbl num" id="5"><span>5</span></button>
+					<button title="'6'" type="submit" class="dr bbl num" id="6"><span>6</span></button>
+				</div>
+				<div class="line">
+					<button title="'7'" type="submit" class="dr bbl num" id="7"><span>7</span></button>
+					<button title="'8'" type="submit" class="dr bbl num" id="8"><span>8</span></button>
+					<button title="'9'" type="submit" class="dr bbl num" id="9"><span>9</span></button>
+				</div>
+				<div class="line">
+					<button title="'m'" type="submit" class="dr bgr" id="menu"><span>MENU</span></button>
+					<button title="'0'" type="submit" class="dr bbl num" id="0"><span>0</span></button>
+					<button title="'t'" type="submit" class="dr bgr" id="text"><span>TEXT</span></button>
+				</div>
+				<div class="blackLeader">
+					<div class="line">
+						<button title="'-'" type="submit" class="dr bwi" id="vol-"><span>VOL-</span></button>
+						<button title="'u'" type="submit" class="dr bwi" id="p+"><span>+</span></button>
+						<button title="'+'" type="submit" class="dr bwi" id="vol+"><span>VOL+</span></button>
+					</div>
+					<div class="line">
+						<button title="'l'" type="submit" class="dr bgr" id="mute"><span>MUTE</span></button>
+						<button title="'j'" type="submit" class="dr bwi" id="p-"><span>-</span></button>
+						<button title="'i'" type="submit" class="dr bgr" id="info"><span>i</span></button>
+					</div>
+					<div class="line">
+						<button title="<F5>" type="submit" class="vr bbl" id="fav"><span>FAV</span></button>
+						<button title="<F6>" type="submit" class="vr bbl" id="pip"><span>PIP</span></button>
+						<button title="<F7>" type="submit" class="vr bbl" id="opt"><span>OPT</span></button>
+						<button title="<F8>" type="submit" class="vr bbl" id="tvr"><span>TV/R</span></button>
+					</div>
+					<div class="line">
+						<button title="'e'" type="submit" class="dr bgr" id="epg"><span>EPG</span></button>
+						<button title="<↑>" type="submit" class="dr bwi img arr" id="up"><span>UP</span></button>
+						<button title="'a'" type="submit" class="dr bgr" id="archiv"><span>ARCHIV</span></button>
+					</div>
+					<div class="line">
+						<button title="<←>" type="submit" class="dr bwi img arr" id="left"><span>LEFT</span></button>
+						<button title="<↵>" type="submit" class="dr bbl" id="ok"><span>OK</span></button>
+						<button title="<→>" type="submit" class="dr bwi img arr" id="right"><span>RIGHT</span></button>
+					</div> 
+					<div class="line">
+						<button title="<ESC>" type="submit" class="dr bgr" id="exit"><span>BACK</span></button>
+						<button title="<↓>" type="submit" class="dr bwi img arr" id="down"><span>DOWN</span></button>
+						<button title="'d'" type="submit" class="dr bgr" id="media"><span>MEDIA</span></button>
+					</div> 
+				</div>
+				<div class="line">
+					<button title="'b'" class="dr bbl foo img" id="fback"><span>FBACK</span></button>
+					<button title="'p'" type="submit" class="dr bbl foo img" id="play"><span>PLAY</span></button>
+					<button title="'f'" type="submit" class="dr bbl foo img" id="fforward"><span>FFORWARD</span></button>
+				</div> 
+				<div class="line">
+					<button title="' '" type="submit" class="dr bbl foo img" id="pause"><span>PAUSE</span></button>
+					<button title="'r'" type="submit" class="dr bbl foo img" id="rec"><span>REC</span></button>
+					<button title="'s'" type="submit" class="dr bbl foo img" id="stop"><span>STOP</span></button>
+				</div> 
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>
