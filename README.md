@@ -9,4 +9,6 @@ HTML page with examples
 	
 * https://github.com/admiralsmaster/fefe-css
 	* HEAD https://admiralsmaster.github.io/fefe-css/fefe.css
-	
+
+* https://github.com/admiralsmaster/helper
+	* HEAD https://admiralsmaster.github.io/helper/
